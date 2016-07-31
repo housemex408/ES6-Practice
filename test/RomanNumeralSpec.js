@@ -39,9 +39,19 @@ describe('RomanNumeral', () => {
             const result = temp.calculateRomanNumeral(null);
             result.should.equal(-1);
         });
-        it('should return -1 when input is null or empty', () => {
+        it('should return -1 when input Z', () => {
             const temp = new RomanNumeral();
-            const result = temp.calculateRomanNumeral(null);
+            const result = temp.calculateRomanNumeral('Z');
+            result.should.equal(-1);
+        });
+        it('should return -1 when input IIII', () => {
+            const temp = new RomanNumeral();
+            const result = temp.calculateRomanNumeral('IIII');
+            result.should.equal(-1);
+        });
+        it('should return -1 when input VIIII', () => {
+            const temp = new RomanNumeral();
+            const result = temp.calculateRomanNumeral('VIIII');
             result.should.equal(-1);
         });
     });
