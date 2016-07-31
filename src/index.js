@@ -8,3 +8,4 @@
  */
 
 export Greeting from './Greeting.js';
+export Person from './Person.js';
