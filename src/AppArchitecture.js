@@ -1,5 +1,4 @@
 //Define Registry
-
 const registry = (() =>
 {
   const modules = new Map();
@@ -61,7 +60,7 @@ const appCore = ((registry, modules) =>
   }
 })(registry, modules);
 
-
+//Define Sandbox
 const sandbox = ((registry) =>
 {
   const request = registry.require("request");
@@ -69,7 +68,8 @@ const sandbox = ((registry) =>
 
   return {
     log: (msg) => logger.log(msg),
-    get: (url) => request.get(url)
+    get: (url) => request.get(url),
+    require: (m) => registry.require(m)
   }
 })(registry);
 
@@ -80,3 +80,6 @@ appCore.notifyAll("OMG This Works!");
 const mod = appCore.getSbx();
 mod.log("blah");
 mod.get("http://google.com");
+
+const mod2 = sandbox.require("logger");
+mod2.sandbox.log("blah mod2")
