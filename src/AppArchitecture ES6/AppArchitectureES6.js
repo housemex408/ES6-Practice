@@ -12,10 +12,13 @@ const modules = [aModule, logger, request];
 const appCore = new AppCore(modules, sbx);
 appCore.subscribeToNotifications();
 appCore.notifyAll("OMG This Works!");
+appCore.notifyAll("Yeah Baby!");
+appCore.notifyStop();
+appCore.notifyAll("This shouldn't print out");
 
-const mod = appCore.getSbx();
-mod.log("logger: blah");
-mod.get("get: http://google.com");
-
-const mod2 = mod.require("logger");
-mod2.sandbox.log("logger: blah mod2")
+// const mod = appCore.getSbx();
+// mod.log("logger: blah");
+// mod.get("get: http://google.com");
+//
+// const mod2 = mod.require("logger");
+// mod2.sandbox.log("logger: blah mod2")

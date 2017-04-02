@@ -1,4 +1,5 @@
 import registry from "./Registry"
+import Notifications from "./Notifications";
 
 //Define App Core
 export default class AppCore
@@ -10,6 +11,7 @@ export default class AppCore
     this._sandbox = sandbox;
     this._modules.forEach((item) => this._registry.register(item));
     this.registerSbx();
+    this._notifications = new Notifications();
   }
 
   addMethod(m, name, fn)
@@ -17,9 +19,9 @@ export default class AppCore
     m.module[name] = fn;
   }
 
-  notification(name, msg)
+  notification(msg)
   {
-    console.log(`${name}: ${msg}`);
+    console.log(`${this.name}: ${msg}`);
   }
 
   register(item)
@@ -50,13 +52,17 @@ export default class AppCore
     {
       const m = this._modules[i];
       this.addMethod(m, "notify", this.notification);
+      this._notifications.on("start", this.notification, m);
     }
   }
 
   notifyAll(msg)
   {
-    this._modules.forEach((pckg) => {
-      pckg.module.notify(pckg.name, msg)
-    });
+    this._notifications.emit("start", msg);
+  }
+
+  notifyStop(msg)
+  {
+    this._notifications.off("start");
   }
 }
