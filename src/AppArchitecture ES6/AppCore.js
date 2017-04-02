@@ -12,12 +12,12 @@ export default class AppCore
     this.registerSbx();
   }
 
-  static addMethod(m, name, fn)
+  addMethod(m, name, fn)
   {
     m.module[name] = fn;
   }
 
-  static notification(name, msg)
+  notification(name, msg)
   {
     console.log(`${name}: ${msg}`);
   }
@@ -30,12 +30,12 @@ export default class AppCore
   registerSbx()
   {
     this._registry.register(this._sandbox);
-    AppCore.addMethod(this._sandbox, "notify", AppCore.notification);
+    this.addMethod(this._sandbox, "notify", this.notification);
 
     for(let i = 0; i < this._modules.length; i++)
     {
       const m = this._modules[i];
-      AppCore.addMethod(m, "sandbox", this._sandbox.module);
+      this.addMethod(m, "sandbox", this._sandbox.module);
     }
   }
 
@@ -49,7 +49,7 @@ export default class AppCore
     for(let i = 0; i < this._modules.length; i++)
     {
       const m = this._modules[i];
-      AppCore.addMethod(m, "notify", AppCore.notification);
+      this.addMethod(m, "notify", this.notification);
     }
   }
 

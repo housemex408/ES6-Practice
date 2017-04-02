@@ -14,8 +14,8 @@ appCore.subscribeToNotifications();
 appCore.notifyAll("OMG This Works!");
 
 const mod = appCore.getSbx();
-mod.log("blah");
-mod.get("http://google.com");
+mod.log("logger: blah");
+mod.get("get: http://google.com");
 
-const mod2 = sbx.module.require("logger");
-mod2.sandbox.log("blah mod2")
+const mod2 = mod.require("logger");
+mod2.sandbox.log("logger: blah mod2")
