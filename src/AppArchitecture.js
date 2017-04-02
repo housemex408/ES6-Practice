@@ -5,9 +5,7 @@ const registry = (() =>
     register: (pckg) => {
       console.log(`Registering module: ${pckg.name}`);
 
-      pckg.module.notify = ((msg) => {
-        console.log(`${pckg.name}: ${msg}`);
-      });
+
 
       modules.set(pckg.name, pckg.module);
     },
@@ -22,12 +20,20 @@ const modules = [aModule, logger, request];
 
 let appCore = ((registry, modules) =>
 {
+  for(let i = 0; i < modules.length; i++)
+  {
+    let m = modules[i];
+    m.module.notify = ((msg) => {
+      console.log(`${m.name}: ${msg}`);
+    });
+  }
+
   modules.forEach((item) => registry.register(item));
   return {
     register: (item) => registry.register(item),
 
     notifyAll: (msg) => modules.forEach((pckg) => {
-      pckg.module.notify(msg)
+      pckg.module.notify( msg)
     })
   }
 })(registry, modules);
