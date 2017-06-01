@@ -17,10 +17,16 @@ describe('ReversePolishNotation', () => {
       result.should.equal(25);
     });
 
-    it('should return 10 when input is [5, 1, 2, +, 4, ×, +, 3, −]', () => {
+    it('should return 14 when input is [5, 1, 2, +, 4, *, +, 3, −]', () => {
       const temp = new ReversePolishNotation();
-      const result = temp.calculate([5, 2, 3, '+', '*']);
-      result.should.equal(25);
+      const result = temp.calculate([5, 1, 2, '+', 4, '*', '+', 3, '-']);
+      result.should.equal(14);
+    });
+
+    it('should return 3 when input is [5, 1, 3, +, 4, /, +, 3, −]', () => {
+      const temp = new ReversePolishNotation();
+      const result = temp.calculate([5, 1, 3, '+', 4, '/', '+', 3, '-']);
+      result.should.equal(3);
     });
 
   });
