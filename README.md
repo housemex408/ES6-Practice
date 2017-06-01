@@ -1,6 +1,6 @@
 # ES6 Playground
 
-`git clone https://github.com/housemex408/ES6-Practice/blob/master/test/ReversePolishNotationSpec.js`
+`git clone git@github.com:housemex408/ES6-Practice.git`
 
 `cd "ES6-Practice"`
 
