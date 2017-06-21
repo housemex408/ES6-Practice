@@ -39,7 +39,7 @@ class Sum {
       }
 
       set.add(item);
-    };
+    }
 
     return found;
   }
