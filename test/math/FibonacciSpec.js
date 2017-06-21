@@ -13,4 +13,14 @@ describe('Fibonacci', () => {
 
   });
 
+  describe('Fibonacci.calculate2()', () => {
+
+    it('should return 13 given fib(7)', () => {
+      const fib = new Fibonacci();
+      const result = fib.calculate(7);
+      expect(result).to.be.equal(13);
+    });
+
+  });
+
 });
