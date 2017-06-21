@@ -1,4 +1,4 @@
-class RomanNumeral {
+export default class RomanNumeral {
     constructor() {
         this.numerals = RomanNumeral.buildNumeralMap();
     }
@@ -40,5 +40,3 @@ class RomanNumeral {
         return map;
     }
 }
-
-export default RomanNumeral;

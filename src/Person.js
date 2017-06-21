@@ -1,4 +1,4 @@
-class Person {
+export default class Person {
     constructor(name, age = 1900) {
         this.name = name || 'John';
         this.age = age;
@@ -12,5 +12,3 @@ class Person {
         return (this.age !== 1900) ? new Date().getFullYear() - this.age : this.age;
     }
 }
-
-export default Person;

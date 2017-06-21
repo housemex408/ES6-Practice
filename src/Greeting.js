@@ -7,7 +7,7 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-class Greeting {
+export default class Greeting {
 
   constructor(name) {
     this.name = name || 'Guest';
@@ -18,5 +18,3 @@ class Greeting {
   }
 
 }
-
-export default Greeting;

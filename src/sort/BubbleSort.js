@@ -1,4 +1,4 @@
-class BubbleSort
+export default class BubbleSort
 {
   /*
    * Approach
@@ -31,5 +31,3 @@ class BubbleSort
   }
 
 }
-
-module.exports = BubbleSort;

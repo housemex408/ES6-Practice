@@ -1,4 +1,4 @@
-class ReversePolishNotation {
+export default class ReversePolishNotation {
   constructor() {
     this.operations = new Map();
     this.operations.set('+', (o1, o2) => o1 + o2);
@@ -37,5 +37,3 @@ class ReversePolishNotation {
   }
 
 }
-
-module.exports = ReversePolishNotation;
