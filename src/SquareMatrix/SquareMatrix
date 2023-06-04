@@ -1,0 +1,21 @@
+let arr = [
+    [-1, 1, -7, -8],
+    [-10, -8, -5, -2],
+    [0, 9, 7, -1],
+    [4, 4, -2, 1],
+]
+
+let ltrSum = 0;
+let rtlSum = 0;
+
+// - 1
+for (let i = 0, j = 0; i < arr.length; i++, j++)
+    ltrSum = ltrSum + arr[i][j];
+
+// -2
+for (let i = 0, j = arr.length - 1; i < arr.length; i++, j--)
+    rtlSum = rtlSum + arr[i][j];
+
+let absSum = Math.abs(ltrSum - rtlSum);
+
+console.log(absSum);
