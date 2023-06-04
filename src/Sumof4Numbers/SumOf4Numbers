@@ -12,3 +12,5 @@ const max = descArr.reduce((total, num) => total + num);
 const min = ascArr.reduce((total, num) => total + num);
 
 console.log(`${min} ${max}`);
+
+// come back and solve for BigInt:  https://www.w3schools.com/js/js_bigint.asp
